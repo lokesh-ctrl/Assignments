@@ -9,4 +9,13 @@ public class NameToNumberConvertTest {
         assertEquals("2792", NameToNumberConverter.nameToNumberConvertTest("arya"));
     }
 
+    @Test
+    public void nametonumberconvertertest2(){
+        assertEquals("5654",NameToNumberConverter.nameToNumberConvertTest("LokI"));
+    }
+
+    @Test
+    public void ifNameContainsSpace(){
+        assertEquals("5466035374268",NameToNumberConverter.nameToNumberConvertTest("lion elephant"));
+    }
 }
