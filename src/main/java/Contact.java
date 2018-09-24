@@ -1,5 +1,3 @@
-package Bean;
-
 public class Contact {
     private String firstName;
     private String Lastname;
