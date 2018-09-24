@@ -6,7 +6,7 @@ public class NameToNumberConvertTest {
 
     @Test
     public void nametonumberconverttest(){
-        assertEquals(2792, NameToNumberConverter.nameToNumberConvertTest("arya"));
+        assertEquals("2792", NameToNumberConverter.nameToNumberConvertTest("arya"));
     }
 
 }

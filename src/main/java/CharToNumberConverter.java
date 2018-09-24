@@ -1,4 +1,4 @@
-public class StringToNumberConverter {
+public class CharToNumberConverter {
 
     public static String stringToNumberConverter(String a) {
         if("AaBbCc".contains(a)) return "2";

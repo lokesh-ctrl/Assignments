@@ -1,8 +1,11 @@
 public class NameToNumberConverter {
-    public static int nameToNumberConvertTest(String name) {
+    public static String nameToNumberConvertTest(String name) {
+        StringBuilder convertedNumber = new StringBuilder("");
+        String temp;
         for (int i=0;i<name.length();i++){
-
+        temp=CharToNumberConverter.stringToNumberConverter(String.valueOf(name.charAt(i)));
+        convertedNumber.append(temp);
         }
-        return 0;
+        return convertedNumber.toString();
     }
 }
