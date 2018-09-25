@@ -12,9 +12,9 @@ public class TakeContactFromUserInput {
         String lastnameinNumber;
         String address;
         StringBuilder contactInString = new StringBuilder("");
-
+        System.out.println("Enter First Name");
         do {
-            System.out.println("Enter First Name");
+
             firstname = sc.nextLine();
             if (firstname == "" || firstname == " ") {
                 System.out.println("Name can't be null or just space");
