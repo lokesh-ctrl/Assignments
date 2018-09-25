@@ -19,6 +19,7 @@ public class SearchContactInPhoneBook {
     }
 
     public static List<Contact> searchContactByName(List<Contact> contactList,String name) {
+
         String convertedNumber = NameToNumberConverter.nameToNumberConverter(name);
         return searchContactByNumber(contactList,convertedNumber);
     }
