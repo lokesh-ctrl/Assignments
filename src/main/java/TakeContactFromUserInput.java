@@ -11,6 +11,7 @@ public class TakeContactFromUserInput {
         String firstNameInNumber;
         String lastnameinNumber;
         String address;
+        StringBuilder contactInString = new StringBuilder("");
 
         do {
             System.out.println("Enter First Name");
@@ -44,7 +45,7 @@ public class TakeContactFromUserInput {
             }
         } while (secondhalfofnumber == "" || secondhalfofnumber == " ");
 
-        System.out.println("Enter adress which is optional");
+        System.out.println("Enter address which is optional");
         address = sc.nextLine();
 
         firstNameInNumber = NameToNumberConverter.nameToNumberConvertTest(firstname);
@@ -58,6 +59,13 @@ public class TakeContactFromUserInput {
         contact.setFirstHalfOfPhoneNumber(firsthalfofnumber);
         contact.setAddress(address);
 
+        contactInString.append(firstname);
+        contactInString.append(lastname);
+        contactInString.append(firstNameInNumber);
+        contactInString.append(lastnameinNumber);
+        String wholeSTring=contactInString.toString();
+
+        contact.setWholeContactInString(wholeSTring);
         return contact;
     }
 }

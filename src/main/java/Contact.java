@@ -6,6 +6,7 @@ public class Contact {
     private String firstHalfOfPhoneNumber;
     private String secondHalfOfPhoneNumber;
     private String address;
+    private String wholeContactInString;
 
     public String getAddress() {
         return address;
@@ -61,5 +62,13 @@ public class Contact {
 
     public void setSecondHalfOfPhoneNumber(String secondHalfOfPhoneNumber) {
         this.secondHalfOfPhoneNumber = secondHalfOfPhoneNumber;
+    }
+
+    public String getWholeContactInString() {
+        return wholeContactInString;
+    }
+
+    public void setWholeContactInString(String wholeContactInString) {
+        this.wholeContactInString = wholeContactInString;
     }
 }

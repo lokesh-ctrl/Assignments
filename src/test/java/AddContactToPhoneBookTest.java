@@ -21,7 +21,18 @@ class AddContactToPhoneBookTest {
         List<Contact> contactList = phoneBook.getPhoneBook();
         contactList = addContactToPhoneBook.addContactToPhoneBook(contactList,contact);
 
-        assertEquals("Loki",contactList.get(0).getFirstName());
+        Contact contact2 = new Contact();
+        contact2.setFirstName("cherry");
+        contact2.setLastname("lion");
+        contact2.setFirstHalfOfPhoneNumber("09876");
+        contact2.setSecondHalfOfPhoneNumber("54321");
+        contact2.setAddress("Bangalore");
+        contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
+        contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contactList = addContactToPhoneBook.addContactToPhoneBook(contactList,contact2);
+
+
+        assertEquals("lion",contactList.get(1).getLastname());
     }
 
 }
