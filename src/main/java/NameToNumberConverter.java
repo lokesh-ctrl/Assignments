@@ -1,5 +1,5 @@
 public class NameToNumberConverter {
-    public static String nameToNumberConvertTest(String name) {
+    public static String nameToNumberConverter(String name) {
         StringBuilder convertedNumber = new StringBuilder("");
         String temp;
         for (int i=0;i<name.length();i++){

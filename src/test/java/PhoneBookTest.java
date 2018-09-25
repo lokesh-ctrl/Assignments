@@ -16,8 +16,8 @@ class PhoneBookTest {
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
         contact.setAddress("Bangalore");
-        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
-        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
+        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         phoneBook.addContact(contact);
 
         assertEquals("Loki",phoneBook.getPhoneBook().get(0).getFirstName());

@@ -48,8 +48,8 @@ public class TakeContactFromUserInput {
         System.out.println("Enter address which is optional");
         address = sc.nextLine();
 
-        firstNameInNumber = NameToNumberConverter.nameToNumberConvertTest(firstname);
-        lastnameinNumber = NameToNumberConverter.nameToNumberConvertTest(lastname);
+        firstNameInNumber = NameToNumberConverter.nameToNumberConverter(firstname);
+        lastnameinNumber = NameToNumberConverter.nameToNumberConverter(lastname);
 
         contact.setFirstName(firstname);
         contact.setLastname(lastname);

@@ -21,9 +21,9 @@ class SearchContactInPhoneBookTest {
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
         contact.setAddress("Bangalore");
-        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
-        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
-        contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
+        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
+        contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
 
         contactList = addContactToPhoneBook.addContactToPhoneBook(contactList, contact);
 
@@ -33,12 +33,12 @@ class SearchContactInPhoneBookTest {
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
         contact2.setAddress("Bangalore");
-        contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
-        contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
-        contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
+        contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
+        contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contactList = addContactToPhoneBook.addContactToPhoneBook(contactList, contact2);
 
-        assertEquals("Loki", SearchContactInPhoneBook.searchContactByNumber(contactList, "12345").get(0).getFirstName());
+        assertEquals("cherry", SearchContactInPhoneBook.searchContactByNumber(contactList, "54321").get(0).getFirstName());
     }
 
     @Test
@@ -53,9 +53,9 @@ class SearchContactInPhoneBookTest {
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
         contact.setAddress("Bangalore");
-        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
-        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
-        contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
+        contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
+        contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
 
         contactList = addContactToPhoneBook.addContactToPhoneBook(contactList, contact);
 
@@ -65,11 +65,11 @@ class SearchContactInPhoneBookTest {
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
         contact2.setAddress("Bangalore");
-        contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()));
-        contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
-        contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConvertTest(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConvertTest(contact.getLastname()));
+        contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
+        contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
+        contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contactList = addContactToPhoneBook.addContactToPhoneBook(contactList, contact2);
 
-        assertEquals("lion",SearchContactInPhoneBook.searchContactByName(contactList,"lion").get(0).getLastname());
+        assertEquals("lion",SearchContactInPhoneBook.searchContactByName(contactList,"lion"));
     }
 }
