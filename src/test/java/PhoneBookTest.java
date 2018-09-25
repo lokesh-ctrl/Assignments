@@ -1,9 +1,9 @@
-import org.junit.jupiter.api.BeforeAll;
+import Methods.NameToNumberConverter;
+import PhoneBook.PhoneBook;
 import org.junit.jupiter.api.Test;
+import PhoneBook.*;
 
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PhoneBookTest {
 

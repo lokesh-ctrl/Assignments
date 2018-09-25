@@ -1,3 +1,5 @@
+package Methods;
+
 public class CharToNumberConverter {
 
     public static String stringToNumberConverter(String a) {

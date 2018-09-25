@@ -1,8 +1,12 @@
+import Methods.NameToNumberConverter;
+import PhoneBook.PhoneBook;
+import Search.SearchCaller;
 import org.junit.jupiter.api.Test;
+import PhoneBook.*;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SearchCallerTest {
     @Test

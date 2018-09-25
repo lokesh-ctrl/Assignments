@@ -1,3 +1,7 @@
+package Methods;
+
+import Methods.CharToNumberConverter;
+
 public class NameToNumberConverter {
     public static String nameToNumberConverter(String name) {
         StringBuilder convertedNumber = new StringBuilder("");

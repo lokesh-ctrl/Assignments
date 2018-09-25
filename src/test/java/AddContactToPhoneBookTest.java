@@ -1,4 +1,7 @@
+import Methods.NameToNumberConverter;
+import PhoneBook.PhoneBook;
 import org.junit.jupiter.api.Test;
+import PhoneBook.*;
 
 import java.util.List;
 

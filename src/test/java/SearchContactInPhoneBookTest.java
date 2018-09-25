@@ -1,5 +1,8 @@
-import org.junit.jupiter.api.BeforeAll;
+import Methods.NameToNumberConverter;
+import PhoneBook.PhoneBook;
+import Search.SearchContactInPhoneBook;
 import org.junit.jupiter.api.Test;
+import PhoneBook.*;
 
 import java.util.List;
 

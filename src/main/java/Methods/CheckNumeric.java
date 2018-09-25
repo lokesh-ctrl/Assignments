@@ -1,3 +1,5 @@
+package Methods;
+
 public class CheckNumeric {
     public static boolean isNumeric(String strNum){
         try {

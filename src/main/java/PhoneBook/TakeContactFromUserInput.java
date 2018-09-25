@@ -1,3 +1,7 @@
+package PhoneBook;
+
+import Methods.NameToNumberConverter;
+
 import java.util.Scanner;
 
 public class TakeContactFromUserInput {
