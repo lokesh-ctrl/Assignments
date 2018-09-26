@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CharToNumberConverterTest {
+public class CharToNumberConverterTest {
     @Test
     public void stringToNumberConverterTest(){
         assertEquals("2", CharToNumberConverter.stringToNumberConverter("a"));

@@ -1,5 +1,6 @@
 package PhoneBook;
 
+import Methods.CheckNumeric;
 import Methods.NameToNumberConverter;
 
 import java.util.Scanner;
@@ -20,34 +21,34 @@ public class TakeContactFromUserInput {
         do {
 
             firstname = sc.nextLine();
-            if (firstname == "" || firstname == " ") {
+            if (firstname.equals("") || firstname.equals(" ")) {
                 System.out.println("Name can't be null or just space");
             }
-        } while (firstname == "" || firstname == " ");
+        } while (firstname.equals("") || firstname.equals(" "));
 
         do {
             System.out.println("Enter Last Name");
             lastname = sc.nextLine();
-            if (lastname == "" || lastname == " ") {
+            if (lastname.equals("") || lastname.equals(" ")) {
                 System.out.println("Name can't be null or just space");
             }
-        } while (lastname == "" || lastname == " ");
+        } while (lastname.equals("") || lastname.equals(" "));
 
         do {
             System.out.println("Enter First half of number");
             firsthalfofnumber = sc.nextLine();
-            if (firsthalfofnumber == "" || firsthalfofnumber == " ") {
-                System.out.println("Name can't be null or just space");
+            if (firsthalfofnumber.equals("") || firsthalfofnumber.equals(" ")) {
+                System.out.println("Number can't be null or just space");
             }
-        } while (firsthalfofnumber == "" || firsthalfofnumber == " ");
+        } while (firsthalfofnumber.equals("") || firsthalfofnumber.equals(" "));
 
         do {
             System.out.println("Enter second half of number");
             secondhalfofnumber = sc.nextLine();
-            if (secondhalfofnumber == "" || secondhalfofnumber == " ") {
-                System.out.println("Name can't be null or just space");
+            if (secondhalfofnumber.equals("") || secondhalfofnumber.equals(" ")) {
+                System.out.println("Number can't be null or just space");
             }
-        } while (secondhalfofnumber == "" || secondhalfofnumber == " ");
+        } while (secondhalfofnumber.equals("") || secondhalfofnumber.equals(" "));
 
         System.out.println("Enter address which is optional");
         address = sc.nextLine();

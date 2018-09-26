@@ -14,7 +14,6 @@ public class DialApp {
         PrintGivenContacts printGivenContacts = new PrintGivenContacts();
         List<Contact> contactList = phoneBook.getPhoneBook();
         Scanner scanner = new Scanner(System.in);
-        {
 
             do {
                 System.out.println("Enter your choice");
@@ -43,6 +42,5 @@ public class DialApp {
                 }
 
             } while (true);
-        }
     }
 }
