@@ -14,4 +14,12 @@ public class Fibanocci {
             return fibanocciNum;
         }
     }
+
+    public static int[] fibanocciSeries(int number) {
+        int[] FibanocciSeries = new int[number];
+        for (int i=1;i<=number;i++){
+            FibanocciSeries[i-1]=fibanocciNumber(i);
+        }
+        return FibanocciSeries;
+    }
 }
