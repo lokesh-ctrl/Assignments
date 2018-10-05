@@ -1,6 +1,9 @@
 public class FizzBuzz {
 
     public static String returnfizzBuzz(int number) {
-        return String.valueOf(1);
+        if (number%3==0){
+            return "Fizz";
+        }
+        return String.valueOf(number);
     }
 }
