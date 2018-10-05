@@ -33,4 +33,10 @@ public class FizzBuzzTest {
 
         assertEquals("Buzz",FizzBuzz.returnfizzBuzz(100));
     }
+
+    @Test
+    public void ifInputIsMultipleOfBothThreeAndFIveReturnFizzBuzz(){
+        assertEquals("FizzBuzz",FizzBuzz.returnfizzBuzz(60));
+    }
+
 }
