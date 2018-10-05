@@ -22,4 +22,15 @@ public class FizzBuzzTest {
 
         assertEquals("Fizz",FizzBuzz.returnfizzBuzz(99));
     }
+
+    @Test
+    public void ifInputisFiveShouldReturnBuzz(){
+        assertEquals("Buzz",FizzBuzz.returnfizzBuzz(5));
+    }
+
+    @Test
+    public void ifInputIsMultipleOfFiveShouldReturnBuzz(){
+
+        assertEquals("Buzz",FizzBuzz.returnfizzBuzz(100));
+    }
 }
