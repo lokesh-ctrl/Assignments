@@ -7,47 +7,32 @@ public class Contact {
     private String lastNameInNumber;
     private String firstHalfOfPhoneNumber;
     private String secondHalfOfPhoneNumber;
-    private String address;
     private String wholeContactInString;
 
-    public String getAddress() {
-        return address;
-    }
 
     public String getFirstNameInNumber() {
         return firstNameInNumber;
     }
-
     public void setFirstNameInNumber(String firstNameInNumber) {
         this.firstNameInNumber = firstNameInNumber;
     }
-
     public void setLastNameInNumber(String lastNameInNumber) {
         this.lastNameInNumber = lastNameInNumber;
     }
-
     public String getLastNameInNumber() {
         return lastNameInNumber;
     }
-
     public String getFirstHalfOfPhoneNumber() {
         return firstHalfOfPhoneNumber;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastname() {
         return Lastname;
     }
-
     public String getSecondHalfOfPhoneNumber() {
         return secondHalfOfPhoneNumber;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public void setFirstHalfOfPhoneNumber(String firstHalfOfPhoneNumber) {

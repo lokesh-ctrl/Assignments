@@ -1,34 +1,42 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class FizzBuzzTest {
+class FizzBuzzTest {
     @Test
-    public void ifInputisOneShouldReturnOne(){
-        assertEquals("1",FizzBuzz.returnfizzBuzz(1));
+    void shouldReturnOneForOne(){
+        assertEquals("1",FizzBuzz.returnFizzBuzz(1));
     }
     @Test
-    public void returnsSameNumber(){
-        assertEquals("11",FizzBuzz.returnfizzBuzz(11));
+    void shouldReturnSameNumber(){
+        assertEquals("11",FizzBuzz.returnFizzBuzz(11));
     }
     @Test
-    public void ifInputisThreeShouldReturnFizz(){
-        assertEquals("Fizz",FizzBuzz.returnfizzBuzz(3));
+    void shouldReturnFizzForThree(){
+        assertEquals("Fizz",FizzBuzz.returnFizzBuzz(3));
     }
     @Test
-    public void ifInputIsMultipleOfThreeShouldReturnFizz(){
-        assertEquals("Fizz",FizzBuzz.returnfizzBuzz(99));
+    void shouldReturnFizzForMultipleOfThree(){
+        assertEquals("Fizz",FizzBuzz.returnFizzBuzz(99));
     }
     @Test
-    public void ifInputisFiveShouldReturnBuzz(){
-        assertEquals("Buzz",FizzBuzz.returnfizzBuzz(5));
+    void shouldReturnBuzzForFive(){
+        assertEquals("Buzz",FizzBuzz.returnFizzBuzz(5));
     }
     @Test
-    public void ifInputIsMultipleOfFiveShouldReturnBuzz(){
-        assertEquals("Buzz",FizzBuzz.returnfizzBuzz(100));
+    void shouldReturnBuzzForMultipleOfFive(){
+        assertEquals("Buzz",FizzBuzz.returnFizzBuzz(100));
     }
     @Test
-    public void ifInputIsMultipleOfBothThreeAndFIveReturnFizzBuzz(){
-        assertEquals("FizzBuzz",FizzBuzz.returnfizzBuzz(60));
+    void shouldReturnFizzBuzzForMultipleOfBothThreeAndFIve(){
+        assertEquals("FizzBuzz",FizzBuzz.returnFizzBuzz(60));
     }
-
+    @Test
+    void shouldThrowErrorIfInputIsLessThanOrEqualToZero(){
+        try {
+            assertEquals("",FizzBuzz.returnFizzBuzz(0));
+        }
+        catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

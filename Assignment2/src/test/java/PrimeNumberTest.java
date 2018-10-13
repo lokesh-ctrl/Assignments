@@ -2,33 +2,33 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PrimeNumberTest {
+class PrimeNumberTest {
     @Test
-    public void ifInputIsOneShouldReturnPrime(){
+    void shouldReturnPrimeForOne(){
         assertEquals("PRIME", Number.isPrime(1));
     }
     @Test
-    public void ifInputIsTwoShouldReturnPrime(){
+    void shouldReturnPrimeForTwo(){
         assertEquals("PRIME", Number.isPrime(2));
     }
 
     @Test
-    public void ifInputIsEvenNumberExceptTwoShouldReturnNOTPRIME(){
+    void shouldReturnNOTPRIMEForEvenNumbersExceptTwo(){
         assertEquals("NOT PRIME", Number.isPrime(4));
     }
 
     @Test
-    public void shouldReturnNotPrimeForAllNonPrimeNumbers(){
+    void shouldReturnNotPrimeForAllNonPrimeNumbers(){
         assertEquals("NOT PRIME", Number.isPrime(7918));
     }
 
     @Test
-    public void shouldReturnPrimeForAllPrimeNumbers(){
+    void shouldReturnPrimeForAllPrimeNumbers(){
         assertEquals("PRIME", Number.isPrime(7919));
     }
 
     @Test
-    public void ifInputIsZeroOrLessThanZeroThrowError(){
+    void shouldThrowErrorForZeroOrLessThanZero(){
         try {
             assertEquals("", Number.isPrime(0));
         }

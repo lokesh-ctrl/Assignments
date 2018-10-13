@@ -8,15 +8,14 @@ import java.util.List;
 
 public class SearchContactInPhoneBook {
     public static List<Contact> searchContactByNumber(List<Contact> contactList, String number) {
-        List<Contact> resultContacts = new ArrayList<Contact>();
+        List<Contact> resultContacts = new ArrayList<>();
         Contact temp;
-        for (int i = 0; i < contactList.size(); i++) {
-            temp=contactList.get(i);
+        for (Contact aContactList : contactList) {
+            temp = aContactList;
             String wholeString = temp.getWholeContactInString();
             boolean condition;
-            if (wholeString.contains(number)) condition = true;
-            else condition = false;
-            if(condition){
+            condition = wholeString.contains(number);
+            if (condition) {
                 resultContacts.add(temp);
             }
         }

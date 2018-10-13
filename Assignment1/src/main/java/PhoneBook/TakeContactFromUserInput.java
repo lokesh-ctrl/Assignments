@@ -1,6 +1,5 @@
 package PhoneBook;
 
-import Methods.CheckNumeric;
 import Methods.NameToNumberConverter;
 
 import java.util.Scanner;
@@ -15,8 +14,7 @@ public class TakeContactFromUserInput {
         String secondhalfofnumber;
         String firstNameInNumber;
         String lastnameinNumber;
-        String address;
-        StringBuilder contactInString = new StringBuilder("");
+        StringBuilder contactInString = new StringBuilder();
         System.out.println("Enter First Name");
         do {
 
@@ -51,19 +49,15 @@ public class TakeContactFromUserInput {
         } while (secondhalfofnumber.equals("") || secondhalfofnumber.equals(" "));
 
         System.out.println("Enter address which is optional");
-        address = sc.nextLine();
 
         firstNameInNumber = NameToNumberConverter.nameToNumberConverter(firstname);
         lastnameinNumber = NameToNumberConverter.nameToNumberConverter(lastname);
-
         contact.setFirstName(firstname);
         contact.setLastname(lastname);
         contact.setLastNameInNumber(lastnameinNumber);
         contact.setFirstNameInNumber(firstNameInNumber);
         contact.setSecondHalfOfPhoneNumber(secondhalfofnumber);
         contact.setFirstHalfOfPhoneNumber(firsthalfofnumber);
-        contact.setAddress(address);
-
         contactInString.append(firstname);
         contactInString.append(lastname);
         contactInString.append(firstNameInNumber);

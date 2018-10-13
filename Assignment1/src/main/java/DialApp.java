@@ -1,12 +1,10 @@
-import PhoneBook.PhoneBook;
 import Search.SearchCaller;
-import PhoneBook.Contact;
 import PhoneBook.*;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class DialApp {
+class DialApp {
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
         TakeContactFromUserInput takeContactFromUserInput = new TakeContactFromUserInput();

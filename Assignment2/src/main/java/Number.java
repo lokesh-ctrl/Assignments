@@ -1,4 +1,4 @@
-public class Number {
+class Number {
     public static String isPrime(int number) {
         boolean isPrime = true;
         if (number<=0){

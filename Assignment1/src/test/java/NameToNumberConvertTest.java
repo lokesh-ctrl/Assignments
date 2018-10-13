@@ -3,20 +3,20 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NameToNumberConvertTest {
+class NameToNumberConvertTest {
 
     @Test
-    public void nametonumberconverttest(){
+    void nameTonumberConvertTest(){
         assertEquals("2792", NameToNumberConverter.nameToNumberConverter("arya"));
     }
 
     @Test
-    public void nametonumberconvertertest2(){
+    void nameToNumberConverterTest(){
         assertEquals("5654",NameToNumberConverter.nameToNumberConverter("LokI"));
     }
 
     @Test
-    public void ifNameContainsSpace(){
+    void ifNameContainsSpace(){
         assertEquals("5466035374268",NameToNumberConverter.nameToNumberConverter("lion elephant"));
     }
 }

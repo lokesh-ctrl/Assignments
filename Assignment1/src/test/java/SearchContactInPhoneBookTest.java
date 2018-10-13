@@ -1,5 +1,4 @@
 import Methods.NameToNumberConverter;
-import PhoneBook.PhoneBook;
 import Search.SearchContactInPhoneBook;
 import org.junit.jupiter.api.Test;
 import PhoneBook.*;
@@ -12,7 +11,7 @@ class SearchContactInPhoneBookTest {
 
 
     @Test
-    public void searchingContactBynumber() {
+    void searchingContactBynumber() {
 
         PhoneBook phoneBook = new PhoneBook();
         AddContactToPhoneBook addContactToPhoneBook = new AddContactToPhoneBook();
@@ -23,7 +22,6 @@ class SearchContactInPhoneBookTest {
         contact.setLastname("R");
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
-        contact.setAddress("Bangalore");
         contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -35,7 +33,6 @@ class SearchContactInPhoneBookTest {
         contact2.setLastname("lion");
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
-        contact2.setAddress("Bangalore");
         contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -45,7 +42,7 @@ class SearchContactInPhoneBookTest {
     }
 
     @Test
-    public void testingwithmultiplesamenumbers(){
+    void testingwithmultiplesamenumbers(){
 
         PhoneBook phoneBook = new PhoneBook();
         AddContactToPhoneBook addContactToPhoneBook = new AddContactToPhoneBook();
@@ -56,7 +53,6 @@ class SearchContactInPhoneBookTest {
         contact.setLastname("R");
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
-        contact.setAddress("Bangalore");
         contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -68,7 +64,6 @@ class SearchContactInPhoneBookTest {
         contact2.setLastname("lion");
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
-        contact2.setAddress("Bangalore");
         contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -78,7 +73,6 @@ class SearchContactInPhoneBookTest {
         contact2.setLastname("lion");
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
-        contact2.setAddress("Bangalore");
         contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -89,7 +83,7 @@ class SearchContactInPhoneBookTest {
     }
 
     @Test
-    public void searchingContactByName() {
+    void searchingContactByName() {
         PhoneBook phoneBook = new PhoneBook();
         AddContactToPhoneBook addContactToPhoneBook = new AddContactToPhoneBook();
         List<Contact> contactList = phoneBook.getPhoneBook();
@@ -99,7 +93,6 @@ class SearchContactInPhoneBookTest {
         contact.setLastname("R");
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
-        contact.setAddress("Bangalore");
         contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -111,7 +104,6 @@ class SearchContactInPhoneBookTest {
         contact2.setLastname("lion");
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
-        contact2.setAddress("Bangalore");
         contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact2.getFirstName()));
         contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact2.getLastname()));
         contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact2.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact2.getLastname()));

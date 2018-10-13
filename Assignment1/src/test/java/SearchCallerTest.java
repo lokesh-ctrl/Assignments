@@ -1,5 +1,4 @@
 import Methods.NameToNumberConverter;
-import PhoneBook.PhoneBook;
 import Search.SearchCaller;
 import org.junit.jupiter.api.Test;
 import PhoneBook.*;
@@ -10,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SearchCallerTest {
     @Test
-    public void checkingsearching1(){
+    void checkingsearching1(){
         PhoneBook phoneBook = new PhoneBook();
         AddContactToPhoneBook addContactToPhoneBook = new AddContactToPhoneBook();
         List<Contact> contactList = phoneBook.getPhoneBook();
@@ -20,7 +19,6 @@ class SearchCallerTest {
         contact.setLastname("R");
         contact.setFirstHalfOfPhoneNumber("12345");
         contact.setSecondHalfOfPhoneNumber("67890");
-        contact.setAddress("Bangalore");
         contact.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact.setWholeContactInString("Loki R 12345 67890 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
@@ -32,7 +30,6 @@ class SearchCallerTest {
         contact2.setLastname("lion");
         contact2.setFirstHalfOfPhoneNumber("09876");
         contact2.setSecondHalfOfPhoneNumber("54321");
-        contact2.setAddress("Bangalore");
         contact2.setFirstNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getFirstName()));
         contact2.setLastNameInNumber(NameToNumberConverter.nameToNumberConverter(contact.getLastname()));
         contact2.setWholeContactInString("cherry lion 09876 54321 " + NameToNumberConverter.nameToNumberConverter(contact.getFirstName()) + " " + NameToNumberConverter.nameToNumberConverter(contact.getLastname()));

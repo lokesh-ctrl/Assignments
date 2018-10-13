@@ -1,5 +1,8 @@
-public class Fibanocci {
+class Fibanocci {
     public static int fibanocciNumber(int number) {
+        if (number<=0){
+            throw new IllegalArgumentException("Illegal Argument");
+        }
         int[] FibanocciNumberStorage = new int[number+1];
         if (number==1 || number==2) {
             return 1;

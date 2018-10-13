@@ -3,28 +3,37 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FibanocciTest {
+class FibanociTest {
     @Test
-    public void ifInputIsOneItShouldReturnOne(){
+    void shouldReturnOneForOne(){
         assertEquals(1,Fibanocci.fibanocciNumber(1));
     }
     @Test
-    public void ifInputIsTwoItShouldReturnOne(){
+    void shouldReturnOneForTwo(){
 
         assertEquals(1,Fibanocci.fibanocciNumber(2));
     }
     @Test
-    public void ifInputIsotherThan1or2ShouldreturnPrevioousTwoNumbersSum(){
+    void shouldReturnPreviousTwoNumbersSum(){
         assertEquals(5,Fibanocci.fibanocciNumber(5));
     }
     @Test
-    public void ifInputIsOneFibanocciSeriesShouldReturnArrayContaingOne(){
+    void shouldReturnArrayContainingOneForOne(){
         int[] testArray = new int[]{1};
         assertArrayEquals(testArray,Fibanocci.fibanocciSeries(1));
     }
     @Test
-    public void returnsArrayofFibanocciNumbers(){
+    void shouldReturnArrayOfFibanociNumbers(){
         int[] testArray = new int[]{1,1,2,3,5,8,13,21};
         assertArrayEquals(testArray,Fibanocci.fibanocciSeries(8));
+    }
+    @Test
+    void shouldThrowErrorIfInputIsLessThanOrEqualToZero(){
+        try {
+            assertEquals("",Fibanocci.fibanocciNumber(-1));
+        }
+        catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
     }
 }
