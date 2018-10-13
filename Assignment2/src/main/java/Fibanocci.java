@@ -8,17 +8,14 @@ public class Fibanocci {
             return FibanocciNumberStorage[number];
         }
         else {
-            int fibanocciNum;
-            fibanocciNum=fibanocciNumber(number-1)+fibanocciNumber(number-2);
-            FibanocciNumberStorage[number]=fibanocciNum;
-            return fibanocciNum;
+            FibanocciNumberStorage[number]=fibanocciNumber(number-1)+fibanocciNumber(number-2);
+            return FibanocciNumberStorage[number];
         }
     }
-
     public static int[] fibanocciSeries(int number) {
         int[] FibanocciSeries = new int[number];
-        for (int i=1;i<=number;i++){
-            FibanocciSeries[i-1]=fibanocciNumber(i);
+        for (int iterator=1;iterator<=number;iterator++){
+            FibanocciSeries[iterator-1]=fibanocciNumber(iterator);
         }
         return FibanocciSeries;
     }
