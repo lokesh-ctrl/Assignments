@@ -1,23 +1,23 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class MessageTest {
-    private final Message message = new Message();
+class EncoderTest {
+    private final Encoder encoder = new Encoder();
 
     @Test
     void shouldReturna1fora(){
-        assertEquals("a1",message.encode("a"));
+        assertEquals("a1",encoder.encode("a"));
     }
     @Test
     void shouldReturnLetterPlusNumberOfRepetitionOfThatLetter(){
-        assertEquals("a5",message.encode("aaaaa"));
+        assertEquals("a5",encoder.encode("aaaaa"));
     }
     @Test
     void shouldReturnLetterPlusNumberOfConsecutiveRepetitionsOfThatLetter(){
-        assertEquals("a1b2",message.encode("abb"));
+        assertEquals("a1b2",encoder.encode("abb"));
     }
     @Test
     void shouldReturnEncodedMessageForGivenMessage(){
-        assertEquals("h1e1l2o1",message.encode("hello"));
+        assertEquals("h1e1l2o1",encoder.encode("hello"));
     }
 }
