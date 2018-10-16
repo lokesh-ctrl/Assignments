@@ -6,18 +6,18 @@ class EncoderTest {
 
     @Test
     void shouldReturna1fora(){
-        assertEquals("a1",encoder.encode("a"));
+        assertEquals("a1",encoder.encodeMessage("a"));
     }
     @Test
     void shouldReturnLetterPlusNumberOfRepetitionOfThatLetter(){
-        assertEquals("a5",encoder.encode("aaaaa"));
+        assertEquals("a5",encoder.encodeMessage("aaaaa"));
     }
     @Test
     void shouldReturnLetterPlusNumberOfConsecutiveRepetitionsOfThatLetter(){
-        assertEquals("a1b2",encoder.encode("abb"));
+        assertEquals("a1b2",encoder.encodeMessage("abb"));
     }
     @Test
     void shouldReturnEncodedMessageForGivenMessage(){
-        assertEquals("h1e1l2o1",encoder.encode("hello"));
+        assertEquals("h1e1l2o1",encoder.encodeMessage("hello"));
     }
 }
