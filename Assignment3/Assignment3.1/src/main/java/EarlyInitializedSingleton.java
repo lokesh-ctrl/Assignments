@@ -1,11 +1,15 @@
 import java.io.Serializable;
 
-public class Singleton implements Serializable {
-    private static Singleton1 ourInstance = new Singleton1();
+public class EarlyInitializedSingleton implements Serializable {
+    private static EarlyInitializedSingleton instance = new EarlyInitializedSingleton();
 
-    public static Singleton1 getInstance() {
-        return ourInstance;
+    public static EarlyInitializedSingleton getInstance() {
+        return instance;
     }
 
-    private Singleton1() { }
+    private EarlyInitializedSingleton() { }
+
+    private Object readResolve(){
+        return instance;
+    }
 }
