@@ -1,5 +1,4 @@
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class ConnectionPool {
     private static final int MAX_CONNECTIONS = 5 ;
 
     List<Connection> availableConnections = new ArrayList<Connection>();
-    private static int connections = 0;
+    private static int totalconnections = 0;
 
     private Connection createNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName(DB_DRIVER);
@@ -25,20 +24,24 @@ public class ConnectionPool {
         availableConnections.add(newconnection);
     }
 
-    private Connection getConnection() throws Exception {
+    public Connection getConnection() throws Exception {
         if (availableConnections.size()>0){
             Connection connection = availableConnections.get(0);
             availableConnections.remove(0);
             return connection;
         }
-        else if (connections < MAX_CONNECTIONS){
+        else if (totalconnections < MAX_CONNECTIONS){
             Connection newConnection = createNewConnection();
-            connections++;
+            totalconnections++;
             return newConnection;
         }
         else {
             throw new Exception("ConnectionPoolLimitReached");
         }
+    }
+
+    public void returnConnection(Connection connection){
+        availableConnections.add(connection);
     }
 
 }
