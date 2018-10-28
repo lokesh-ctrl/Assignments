@@ -25,11 +25,25 @@ class ConnectionPoolTest {
         Connection connection3 = connectionPool.getConnection();
         Connection connection4 = connectionPool.getConnection();
         Connection connection5 = connectionPool.getConnection();
+        assertEquals(0,connectionPool.availableConnections.size());
         try {
             Connection connection6 = connectionPool.getConnection();
         }
         catch (Exception e){
             assertEquals("ConnectionPoolLimitReached",e.getMessage());
         }
+    }
+
+    @Test
+    void shouldAddConnectionToTheAvailableConnectionByCallingreturnConnection() throws Exception {
+        ConnectionPool connectionPool = new ConnectionPool();
+        Connection connection1 = connectionPool.getConnection();
+        Connection connection2 = connectionPool.getConnection();
+        Connection connection3 = connectionPool.getConnection();
+        Connection connection4 = connectionPool.getConnection();
+        Connection connection5 = connectionPool.getConnection();
+
+        connectionPool.returnConnection(connection5);
+        assertEquals(1,connectionPool.availableConnections.size());
     }
 }

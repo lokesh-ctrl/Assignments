@@ -20,9 +20,6 @@ public class ConnectionPool {
         return connection;
     }
 
-    private void addConnectionToThePool(Connection newconnection){
-        availableConnections.add(newconnection);
-    }
 
     public Connection getConnection() throws Exception {
         if (availableConnections.size()>0){
