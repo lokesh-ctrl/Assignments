@@ -35,7 +35,7 @@ class ConnectionPoolTest {
     }
 
     @Test
-    void shouldAddConnectionToTheAvailableConnectionByCallingreturnConnection() throws Exception {
+    void shouldAddConnectionToTheAvailableConnectionsByCallingreturnConnection() throws Exception {
         ConnectionPool connectionPool = new ConnectionPool();
         Connection connection1 = connectionPool.getConnection();
         Connection connection2 = connectionPool.getConnection();
@@ -45,5 +45,8 @@ class ConnectionPoolTest {
 
         connectionPool.returnConnection(connection5);
         assertEquals(1,connectionPool.availableConnections.size());
+        Connection connection = connectionPool.getConnection();
+        assertEquals(0,connectionPool.availableConnections.size());
+
     }
 }
