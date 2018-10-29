@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ConnectionPoolTest {
     @Test
     void createConnection() throws Exception {
-        ConnectionPool connectionPool = new ConnectionPool();
+        ConnectionPool connectionPool = ConnectionPool.getInstance ();
         Connection connection = connectionPool.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from account where account_id = 1000");
@@ -19,7 +19,7 @@ class ConnectionPoolTest {
 
     @Test
     void shouldThrowErrorIfConnectionsAreMoreThanFive() throws Exception {
-        ConnectionPool connectionPool = new ConnectionPool();
+        ConnectionPool connectionPool = ConnectionPool.getInstance ();
         Connection connection1 = connectionPool.getConnection();
         Connection connection2 = connectionPool.getConnection();
         Connection connection3 = connectionPool.getConnection();
@@ -36,12 +36,13 @@ class ConnectionPoolTest {
 
     @Test
     void shouldAddConnectionToTheAvailableConnectionsByCallingreturnConnection() throws Exception {
-        ConnectionPool connectionPool = new ConnectionPool();
+        ConnectionPool connectionPool = ConnectionPool.getInstance ();
         Connection connection1 = connectionPool.getConnection();
         Connection connection2 = connectionPool.getConnection();
         Connection connection3 = connectionPool.getConnection();
         Connection connection4 = connectionPool.getConnection();
         Connection connection5 = connectionPool.getConnection();
+        System.out.println (System.getProperty("user.dir"));
 
         connectionPool.returnConnection(connection5);
         assertEquals(1,connectionPool.availableConnections.size());
