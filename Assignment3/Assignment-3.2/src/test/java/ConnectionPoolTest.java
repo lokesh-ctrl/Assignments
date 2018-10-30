@@ -42,7 +42,6 @@ class ConnectionPoolTest {
         Connection connection3 = connectionPool.getConnection();
         Connection connection4 = connectionPool.getConnection();
         Connection connection5 = connectionPool.getConnection();
-        System.out.println (System.getProperty("user.dir"));
 
         connectionPool.returnConnection(connection5);
         assertEquals(1,connectionPool.availableConnections.size());

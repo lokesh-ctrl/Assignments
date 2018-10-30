@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ConnectionPool {
-
     private static final ConnectionPool INSTANCE = new ConnectionPool ( );
     private static int totalconnections = 0;
     final List<Connection> availableConnections = new ArrayList<Connection> ( );
+    private DbConfiguration dbConfiguration = new DBConfigurationFromFile ( );
 
 
     private ConnectionPool() {
@@ -20,8 +20,8 @@ class ConnectionPool {
     }
 
     private Connection createNewConnection() throws ClassNotFoundException, SQLException {
-        Class.forName ( DbConfiguration.getDbDriver ( ) );
-        return DriverManager.getConnection ( DbConfiguration.getDbUrl ( ), DbConfiguration.getDbUserName ( ), DbConfiguration.getDbUserPassword ( ) );
+        Class.forName ( dbConfiguration.getDbDriver ( ) );
+        return DriverManager.getConnection ( dbConfiguration.getDbUrl ( ), dbConfiguration.getDbUserName ( ), dbConfiguration.getDbUserPassword ( ) );
     }
 
     public Connection getConnection() throws Exception {
@@ -29,7 +29,7 @@ class ConnectionPool {
             Connection connection = availableConnections.get ( 0 );
             availableConnections.remove ( 0 );
             return connection;
-        } else if (totalconnections < DbConfiguration.getMaxConnections ( )) {
+        } else if (totalconnections < dbConfiguration.getMaxConnections ( )) {
             Connection newConnection = createNewConnection ( );
             totalconnections++;
             return newConnection;
