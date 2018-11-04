@@ -1,4 +1,4 @@
-public interface Configuration {
+interface Configuration {
     String getDbUrl();
     String getDbUserName();
     String getDbDriver();
