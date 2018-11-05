@@ -1,24 +1,28 @@
 import java.sql.Connection;
-import java.sql.SQLException;
 
-public class Consumer extends Thread {
-    private SharedConnectionsBuffer sharedConnectionsBuffer;
+class Consumer extends Thread {
+    private final SharedConnectionsBuffer sharedConnectionsBuffer;
 
-    public Consumer(String name,SharedConnectionsBuffer sharedConnectionsBuffer) {
-        super(name);
+    public Consumer(String name, SharedConnectionsBuffer sharedConnectionsBuffer) {
+        super ( name );
         this.sharedConnectionsBuffer = sharedConnectionsBuffer;
     }
+
     @Override
-    public void run(){
-        synchronized (this){
-            Connection connection = sharedConnectionsBuffer.consumeConnection ();
-            try {
-                sleep ( 2000 );
-            } catch ( InterruptedException e ) {
-                e.printStackTrace ( );
-            }
+    public void run() {
+        synchronized (this) {
+            Connection connection = sharedConnectionsBuffer.consumeConnection ( );
+            doSomeWorkWithTheConnection();
             sharedConnectionsBuffer.closeConnection ( connection );
-            run ();
+            run ( );
+        }
+    }
+
+    private void doSomeWorkWithTheConnection() {
+        try {
+            sleep ( 5000 );
+        } catch ( InterruptedException e ) {
+            e.printStackTrace ( );
         }
     }
 }

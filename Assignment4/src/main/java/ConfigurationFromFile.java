@@ -7,10 +7,10 @@ import java.util.Properties;
 public class ConfigurationFromFile implements Configuration {
     private static final String DB_URL;
     private static String FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
-    private static String DB_USER_NAME;
-    private static String DB_DRIVER;
-    private static String DB_USER_PASSWORD;
-    private static int MAX_CONNECTIONS;
+    private static final String DB_USER_NAME;
+    private static final String DB_DRIVER;
+    private static final String DB_USER_PASSWORD;
+    private static final int MAX_CONNECTIONS;
 
     static {
         Properties properties = new Properties ( );
@@ -28,12 +28,6 @@ public class ConfigurationFromFile implements Configuration {
         DB_USER_NAME = properties.getProperty ( "DB_USER_NAME" );
         DB_USER_PASSWORD = properties.getProperty ( "DB_USER_PASSWORD" );
         MAX_CONNECTIONS = Integer.parseInt ( properties.getProperty ( "MAX_CONNECTIONS" ) );
-    }
-    public ConfigurationFromFile(String filePath) {
-        FILE_PATH = filePath;
-    }
-    public ConfigurationFromFile() {
-        FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
     }
 
     public String getDbUrl() {

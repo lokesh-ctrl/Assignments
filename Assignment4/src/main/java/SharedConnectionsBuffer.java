@@ -4,16 +4,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SharedConnectionsBuffer {
+class SharedConnectionsBuffer {
 
     private final int MAX_LIMIT = 25;
-    private List<Connection> totalConnections = new ArrayList<Connection> ( );
-    private Configuration configuration = new ConfigurationFromFile ();
+    private final List<Connection> totalConnections = new ArrayList<Connection> ( );
+    private Configuration configuration = new ConfigurationFromFile ( );
     private volatile Thread lastConsumer = null;
     private volatile int countOfContinousConsumesByAConsumer = 0;
 
 
-    public Connection createNewConnection() throws ClassNotFoundException, SQLException {
+    private Connection createNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName ( configuration.getDbDriver ( ) );
         return DriverManager.getConnection ( configuration.getDbUrl ( ), configuration.getDbUserName ( ), configuration.getDbUserPassword ( ) );
     }
@@ -26,14 +26,17 @@ public class SharedConnectionsBuffer {
                 e.printStackTrace ( );
             }
         }
-        System.out.println ( Thread.currentThread ().getName ()+" produced a Connection" );
+        System.out.println ( Thread.currentThread ( ).getName ( ) + " produced a Connection" );
         Connection connection = createNewConnection ( );
         totalConnections.add ( connection );
         notifyAll ( );
     }
 
     public synchronized Connection consumeConnection() {
-        if (totalConnections.size ()==0 || isSlefishConsumer ( Thread.currentThread () )) {
+        if (totalConnections.size ( ) == 0 || isSelfishConsumer ( Thread.currentThread ( ) )) {
+            if (totalConnections.size ()==0){
+                notifyAll ();
+            }
             try {
                 wait ( );
             } catch ( InterruptedException e ) {
@@ -44,21 +47,21 @@ public class SharedConnectionsBuffer {
         totalConnections.remove ( 0 );
         return connection;
     }
-    private boolean isSlefishConsumer(Thread presentConsumer){
-        if (lastConsumer==presentConsumer){
+
+    private synchronized boolean isSelfishConsumer(Thread presentConsumer) {
+        if (lastConsumer == presentConsumer) {
             countOfContinousConsumesByAConsumer++;
-        }
-        else {
+        } else {
             lastConsumer = presentConsumer;
             countOfContinousConsumesByAConsumer = 0;
         }
-        return countOfContinousConsumesByAConsumer>=2;
+        return countOfContinousConsumesByAConsumer >= 2;
     }
 
-    public void closeConnection(Connection connection){
-        System.out.println ( Thread.currentThread ().getName ()+" returned a connection" );
+    public void closeConnection(Connection connection) {
+        System.out.println ( Thread.currentThread ( ).getName ( ) + " returned a connection" );
         try {
-            connection.close ();
+            connection.close ( );
         } catch ( SQLException e ) {
             e.printStackTrace ( );
         }

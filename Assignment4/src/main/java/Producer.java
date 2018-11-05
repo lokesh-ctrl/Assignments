@@ -1,10 +1,10 @@
 import java.sql.SQLException;
 
-public class Producer extends Thread {
-    SharedConnectionsBuffer sharedConnectionsBuffer;
+class Producer extends Thread {
+    final SharedConnectionsBuffer sharedConnectionsBuffer;
 
     public Producer(String name, SharedConnectionsBuffer sharedConnectionsBuffer) {
-        super(name);
+        super ( name );
         this.sharedConnectionsBuffer = sharedConnectionsBuffer;
     }
 
@@ -19,7 +19,7 @@ public class Producer extends Thread {
                 e.printStackTrace ( );
             }
         }
-        run ();
+        run ( );
     }
 }
 
