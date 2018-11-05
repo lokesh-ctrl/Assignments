@@ -6,9 +6,9 @@ import java.util.List;
 
 public class SharedConnectionsBuffer {
 
-    private final List<Connection> totalConnections = new ArrayList<Connection> ( );
+    private final int MAX_LIMIT = 25;
+    private List<Connection> totalConnections = new ArrayList<Connection> ( );
     private Configuration configuration = new ConfigurationFromFile ( );
-
 
     public Connection createNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName ( configuration.getDbDriver ( ) );
@@ -16,11 +16,20 @@ public class SharedConnectionsBuffer {
     }
 
     public void produceConnection() throws SQLException, ClassNotFoundException {
-        Connection connection = createNewConnection ();
-        totalConnections.add (connection);
+        while (totalConnections.size ( ) == MAX_LIMIT) {
+            try {
+                wait ( );
+            } catch ( InterruptedException e ) {
+                e.printStackTrace ( );
+            }
+        }
+        System.out.println ( Thread.currentThread ()+"produced a Connection" );
+        Connection connection = createNewConnection ( );
+        totalConnections.add ( connection );
+        notifyAll ( );
     }
 
-    public Connection consumeConnection(){
+    public Connection consumeConnection() {
         Connection connection = totalConnections.get ( 0 );
         totalConnections.remove ( 0 );
         return connection;
