@@ -2,10 +2,9 @@ import java.sql.SQLException;
 
 public class Producer extends Thread {
     SharedConnectionsBuffer sharedConnectionsBuffer;
-    private int MAX_LIMIT;
 
-    public Producer(int MAX_LIMIT, SharedConnectionsBuffer sharedConnectionsBuffer) {
-        this.MAX_LIMIT = MAX_LIMIT;
+    public Producer(String name, SharedConnectionsBuffer sharedConnectionsBuffer) {
+        super(name);
         this.sharedConnectionsBuffer = sharedConnectionsBuffer;
     }
 

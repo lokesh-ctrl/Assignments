@@ -23,7 +23,7 @@ public class SharedConnectionsBuffer {
                 e.printStackTrace ( );
             }
         }
-        System.out.println ( Thread.currentThread ()+"produced a Connection" );
+        System.out.println ( Thread.currentThread ().getName ()+" produced a Connection" );
         Connection connection = createNewConnection ( );
         totalConnections.add ( connection );
         notifyAll ( );
@@ -43,7 +43,7 @@ public class SharedConnectionsBuffer {
     }
 
     public void closeConnection(Connection connection){
-        System.out.println ( Thread.currentThread ()+"returned a connection" );
+        System.out.println ( Thread.currentThread ().getName ()+" returned a connection" );
         try {
             connection.close ();
         } catch ( SQLException e ) {

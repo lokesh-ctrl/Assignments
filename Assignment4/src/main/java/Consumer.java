@@ -4,7 +4,8 @@ import java.sql.SQLException;
 public class Consumer extends Thread {
     private SharedConnectionsBuffer sharedConnectionsBuffer;
 
-    public Consumer(SharedConnectionsBuffer sharedConnectionsBuffer) {
+    public Consumer(String name,SharedConnectionsBuffer sharedConnectionsBuffer) {
+        super(name);
         this.sharedConnectionsBuffer = sharedConnectionsBuffer;
     }
     @Override
