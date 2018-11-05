@@ -8,7 +8,10 @@ public class SharedConnectionsBuffer {
 
     private final int MAX_LIMIT = 25;
     private List<Connection> totalConnections = new ArrayList<Connection> ( );
-    private Configuration configuration = new ConfigurationFromFile ("/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties");
+    private Configuration configuration = new ConfigurationFromFile ();
+    private volatile Thread lastConsumer = null;
+    private volatile int countOfContinousConsumesByAConsumer = 0;
+
 
     public Connection createNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName ( configuration.getDbDriver ( ) );
@@ -30,7 +33,7 @@ public class SharedConnectionsBuffer {
     }
 
     public synchronized Connection consumeConnection() {
-        if (totalConnections.size ()==0) {
+        if (totalConnections.size ()==0 || isSlefishConsumer ( Thread.currentThread () )) {
             try {
                 wait ( );
             } catch ( InterruptedException e ) {
@@ -40,6 +43,16 @@ public class SharedConnectionsBuffer {
         Connection connection = totalConnections.get ( 0 );
         totalConnections.remove ( 0 );
         return connection;
+    }
+    private boolean isSlefishConsumer(Thread presentConsumer){
+        if (lastConsumer==presentConsumer){
+            countOfContinousConsumesByAConsumer++;
+        }
+        else {
+            lastConsumer = presentConsumer;
+            countOfContinousConsumesByAConsumer = 0;
+        }
+        return countOfContinousConsumesByAConsumer>=2;
     }
 
     public void closeConnection(Connection connection){
