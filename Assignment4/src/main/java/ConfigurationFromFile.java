@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class ConfigurationFromFile implements Configuration {
     private static final String DB_URL;
-    private static String FILE_PATH = "src/main/resources/configuration.properties";
+    private static String FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
     private static String DB_USER_NAME;
     private static String DB_DRIVER;
     private static String DB_USER_PASSWORD;
@@ -33,7 +33,7 @@ public class ConfigurationFromFile implements Configuration {
         FILE_PATH = filePath;
     }
     public ConfigurationFromFile() {
-        FILE_PATH = "src/main/resources/configuration.properties";
+        FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
     }
 
     public String getDbUrl() {

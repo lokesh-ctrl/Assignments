@@ -8,14 +8,14 @@ public class SharedConnectionsBuffer {
 
     private final int MAX_LIMIT = 25;
     private List<Connection> totalConnections = new ArrayList<Connection> ( );
-    private Configuration configuration = new ConfigurationFromFile ( );
+    private Configuration configuration = new ConfigurationFromFile ("/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties");
 
     public Connection createNewConnection() throws ClassNotFoundException, SQLException {
         Class.forName ( configuration.getDbDriver ( ) );
         return DriverManager.getConnection ( configuration.getDbUrl ( ), configuration.getDbUserName ( ), configuration.getDbUserPassword ( ) );
     }
 
-    public void produceConnection() throws SQLException, ClassNotFoundException {
+    public synchronized void produceConnection() throws SQLException, ClassNotFoundException {
         while (totalConnections.size ( ) == MAX_LIMIT) {
             try {
                 wait ( );
@@ -29,10 +29,26 @@ public class SharedConnectionsBuffer {
         notifyAll ( );
     }
 
-    public Connection consumeConnection() {
+    public synchronized Connection consumeConnection() {
+        if (totalConnections.size ()==0) {
+            try {
+                wait ( );
+            } catch ( InterruptedException e ) {
+                e.printStackTrace ( );
+            }
+        }
         Connection connection = totalConnections.get ( 0 );
         totalConnections.remove ( 0 );
         return connection;
+    }
+
+    public void closeConnection(Connection connection){
+        System.out.println ( Thread.currentThread ()+"returned a connection" );
+        try {
+            connection.close ();
+        } catch ( SQLException e ) {
+            e.printStackTrace ( );
+        }
     }
 }
 
