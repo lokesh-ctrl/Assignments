@@ -6,7 +6,6 @@ import java.util.Properties;
 
 public class ConfigurationFromFile implements Configuration {
     private static final String DB_URL;
-    private static String FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
     private static final String DB_USER_NAME;
     private static final String DB_DRIVER;
     private static final String DB_USER_PASSWORD;
@@ -16,6 +15,7 @@ public class ConfigurationFromFile implements Configuration {
         Properties properties = new Properties ( );
         InputStream inputStream;
         try {
+            String FILE_PATH = "/Users/rlokesh/Documents/Projects/Dialer_App/Assignment4/src/main/resources/configuration.properties";
             inputStream = new FileInputStream ( FILE_PATH );
             properties.load ( inputStream );
         } catch ( FileNotFoundException e ) {

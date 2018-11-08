@@ -12,7 +12,7 @@ class Consumer extends Thread {
     public void run() {
         synchronized (this) {
             Connection connection = sharedConnectionsBuffer.consumeConnection ( );
-            doSomeWorkWithTheConnection();
+            doSomeWorkWithTheConnection ( );
             sharedConnectionsBuffer.closeConnection ( connection );
             run ( );
         }

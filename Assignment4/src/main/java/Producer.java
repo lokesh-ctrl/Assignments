@@ -1,7 +1,7 @@
 import java.sql.SQLException;
 
 class Producer extends Thread {
-    final SharedConnectionsBuffer sharedConnectionsBuffer;
+    private final SharedConnectionsBuffer sharedConnectionsBuffer;
 
     public Producer(String name, SharedConnectionsBuffer sharedConnectionsBuffer) {
         super ( name );
